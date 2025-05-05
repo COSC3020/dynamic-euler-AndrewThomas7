@@ -4,7 +4,7 @@ function FactorialDynamic(n){
     for(x=1;x<=n;x++){
         FacStack.push(FacStack[x-1]*x)
     }
-    return FacStack
+    return FacStack[FacStack.length-1]
 }
 function DynamicE(n){
     var EStack=[1]
