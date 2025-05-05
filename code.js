@@ -2,7 +2,7 @@ function FactorialDynamic(n){
     var FStack=[1]
     var num;
     for(var x=1;x<=n;x++){
-        FStack.push(Ftack[x-1]*x)
+        FStack.push(FStack[x-1]*x)
     }
     num=FStack[FStack.length-1]
     return num;
