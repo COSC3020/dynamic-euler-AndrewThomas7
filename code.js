@@ -1,9 +1,15 @@
-function factorial(n) {
-    if(n === 0) return 1;
-    else return n * factorial(n - 1);
-}
 
-function e(n) {
-    if(n === 0) return 1;
-    else return 1.0 / factorial(n) + e(n - 1);
+function FactorialDynamic(n){
+    var FacStack=[1]
+    for(x=1;x<=n;x++){
+        FacStack.push(FacStack[x-1]*x)
+    }
+    return FacStack
+}
+function DynamicE(n){
+    var EStack=[1]
+    for(x=1;x<=n;x++){
+        EStack.push(EStack[x-1]+1.0/ FactorialDynamic(x))
+    }
+    return EStack[EStack.length-1]
 }
