@@ -53,3 +53,30 @@ function DynamicE(n){
 ## Runtime Analysis
 
 What is the worst-case big $\Theta$ time complexity of your algorithm?
+
+# Answer
+
+To determine the time complexity for my algorthm we will walk through each step to figure out what it is doing.
+
+First we delcare a stack initalzied with the base case number 1;
+Then we run a for loop from 1-n, where n is the series deapth we go into in order to approximate e. This has a complexity of $O(n)$, however we also have a nested loop inside of this hidden in the form of the function FactorialDynamic(x), which calculates the factorial number dynamically using Tabulation. This also has a time complexity of $O(n)$ as it too creates a stack and pushes factorial numbers to it. This list created here is the length of the factorial(x). So if we calculate the factorial 5 we get a list of length 5. The last number in this list is returned to calculate the e-approximation. With that being said we have something like $n\cdot n=n^2\in \Theta(n^2)$.
+
+```Javascript
+function FactorialDynamic(n){
+    var FStack=[1]
+    var num;
+    for(var x=1;x<=n;x++){
+        FStack.push(FStack[x-1]*x)
+    }
+    num=FStack[FStack.length-1]
+    return num;
+}
+function DynamicE(n){
+    var EStack=[1]
+    for(var x=1;x<=n;x++){
+       console.log((EStack[x-1])+(1/FactorialDynamic(x)))
+        EStack.push((EStack[x-1])+(1/FactorialDynamic(x)))
+    }
+    return EStack[EStack.length-1]
+}
+```
