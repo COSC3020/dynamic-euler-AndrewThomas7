@@ -7,6 +7,7 @@ function FactorialDynamic(n){
     num=FStack[FStack.length-1]
     return num;
 }
+
 function DynamicE(n){
     var EValue=1
     for(var x=1;x<=n;x++){
