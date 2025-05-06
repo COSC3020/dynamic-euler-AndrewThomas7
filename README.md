@@ -72,11 +72,11 @@ function FactorialDynamic(n){
     return num;
 }
 function DynamicE(n){
-    var EStack=[1]
+    var EValue=1
     for(var x=1;x<=n;x++){
-       console.log((EStack[x-1])+(1/FactorialDynamic(x)))
-        EStack.push((EStack[x-1])+(1/FactorialDynamic(x)))
+        EValue=EValue+(1/FactorialDynamic(x))
     }
-    return EStack[EStack.length-1]
+    return EValue
 }
+
 ```
