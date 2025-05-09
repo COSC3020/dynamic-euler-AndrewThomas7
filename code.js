@@ -1,9 +1,15 @@
-function factorial(n) {
-    if(n === 0) return 1;
-    else return n * factorial(n - 1);
+function FactorialDynamic(n){
+    var FValue=1
+    var num;
+    for(var x=1;x<=n;x++){
+        FValue*=1*x
+    }
+    return FValue;
 }
-
-function e(n) {
-    if(n === 0) return 1;
-    else return 1.0 / factorial(n) + e(n - 1);
+function DynamicE(n){
+    var EValue=1
+    for(var x=1;x<=n;x++){
+        EValue=EValue+(1/FactorialDynamic(x))
+    }
+    return EValue
 }
